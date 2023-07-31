@@ -1,21 +1,17 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args){
-        int a, b;
-        double resultado;
+        Scanner sc = new Scanner(System.in);
 
-        a = 5;
-        b = 2;
+        String x;
 
-        resultado = (double) a / b;
+        System.out.print("Insira um numero: ");
 
-        System.out.println(resultado);
+        x = sc.next();
 
-        int x;
-        double y;
+        System.out.println("O número inserido é: " + x);
 
-        y = 5.0;
-        x = (int) y;
-
-        System.out.println(x);
+        sc.close();
     }
 }
