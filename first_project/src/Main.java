@@ -45,7 +45,7 @@ public class Main {
                 default:
                     continue;                
             }
-
+            System.out.println("Fim do programa");
             /* if (option == 1){
                 result = (float) firstNumber + secondNumber;
                 System.out.printf("A soma de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
