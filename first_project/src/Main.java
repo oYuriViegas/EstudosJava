@@ -4,63 +4,19 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int firstNumber, secondNumber, option;
-        float result;
+        double delta, a, b, c, x1, x2;
 
-        option = 12345;
+        a = 1.0;
+        b = -3.0;
+        c = -54.0;
 
-        while(option != 0){
-            System.out.print("Insira um numero: ");
-            firstNumber = sc.nextInt();
+        delta = Math.pow(b, 2.0) -4*a*c;
 
-            System.out.print("Insira outro número: ");
-            secondNumber = sc.nextInt();
-
-            System.out.println("Qual operação deseja realizar?");
-            System.out.println("1 - Soma");
-            System.out.println("2 - Subtração");
-            System.out.println("3 - Multiplicação");
-            System.out.println("4 - Divisão");
-            System.out.println("0 - Sair");
-
-            option = sc.nextInt();
-
-            switch(option){
-                case 1:
-                    result = (float) firstNumber + secondNumber;
-                    System.out.printf("A soma de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
-                    break;
-                case 2:
-                    result = (float) firstNumber - secondNumber;
-                    System.out.printf("A subtração de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
-                    break;
-                case 3:
-                    result = (float) firstNumber * secondNumber;
-                    System.out.printf("A multiplicação de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
-                    break;
-                case 4:
-                    result = (float) firstNumber / secondNumber;
-                    System.out.printf("A divisão de %d por %d é: %.2f%n", firstNumber, secondNumber, result);    
-                    break;
-                default:
-                    continue;                
-            }
-            System.out.println("Fim do programa");
-            /* if (option == 1){
-                result = (float) firstNumber + secondNumber;
-                System.out.printf("A soma de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
-            } else if(option == 2){
-                result = (float) firstNumber - secondNumber;
-                System.out.printf("A subtração de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
-            } else if(option == 3){
-                result = (float) firstNumber * secondNumber;
-                System.out.printf("A multiplicação de %d e %d é: %.2f%n", firstNumber, secondNumber, result);
-            } else if(option == 4){
-                result = (float) firstNumber / secondNumber;
-                System.out.printf("A divisão de %d por %d é: %.2f%n", firstNumber, secondNumber, result);
-            } */
-        }
-
+        x1 = (-b + Math.sqrt(delta)) / (2.0 * a);
+        x2 = (-b - Math.sqrt(delta)) / (2.0 * a);
+        
+        System.out.println(x1);
+        System.out.println(x2);
         
         sc.close();
     }
