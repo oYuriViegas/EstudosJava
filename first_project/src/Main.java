@@ -1,56 +1,51 @@
 import java.util.Scanner;
 
-public class Main {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Calculadora Simples");
-        System.out.print("Digite o primeiro número: ");
-        double num1 = scanner.nextDouble();
-
-        System.out.print("Digite o segundo número: ");
-        double num2 = scanner.nextDouble();
-
-        System.out.println("Escolha a operação (digite o símbolo correspondente):");
-        System.out.println("+ : Adição");
-        System.out.println("- : Subtração");
-        System.out.println("* : Multiplicação");
-        System.out.println("/ : Divisão");
-
-        char operacao = scanner.next().charAt(0);
-
-        double resultado = 0.0;
-        boolean operacaoValida = true;
-
-        switch (operacao) {
-            case '+':
-                resultado = num1 + num2;
-                break;
-            case '-':
-                resultado = num1 - num2;
-                break;
-            case '*':
-                resultado = num1 * num2;
-                break;
-            case '/':
-                if (num2 != 0) {
-                    resultado = num1 / num2;
-                } else {
-                    System.out.println("Não é possível dividir por zero.");
-                    operacaoValida = false;
-                }
-                break;
-            default:
-                System.out.println("Operação inválida.");
-                operacaoValida = false;
-                break;
-        }
-
-        if (operacaoValida) {
-            System.out.println("O resultado da operação é: " + resultado);
-        }
-
-        scanner.close();
-    }
+public class Main{
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int opt, amnt;
+		double total = 0;
+		
+		System.out.println("=========== ARTHUR LANCHES ===========");
+		System.out.println("1. Cachorro Quente			R$4.00");
+		System.out.println("2. X-Salada				R$4.50");
+		System.out.println("3. X-Bacon				R$5.00");
+		System.out.println("4. Torrada Simples			R$2.00");
+		System.out.println("5. Refrigerante				R$1.50");
+		
+		System.out.print("Insira o item que deseja: ");
+		opt = sc.nextInt();
+		System.out.print("Insira a quantidade: ");
+		amnt = sc.nextInt();
+		
+		
+		switch(opt) {
+			case 1:
+				total = (float) amnt * 4.00;
+				break;
+			case 2:
+				total = (float) amnt * 4.50;
+				break;
+			case 3:
+				total = (float) amnt * 5.00;
+				break;
+			case 4:
+				total = (float) amnt * 2.00;
+				break;
+			case 5:
+				total = (float) amnt * 1.50;
+				break;
+			default:
+				System.out.println("Opção invalida!!");
+		}
+		
+		System.out.printf("Total da compra:  R$ %.2f", total);
+		
+        sc.close();
+	}
 }
+
+
+
+
