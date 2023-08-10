@@ -4,21 +4,21 @@ public class Main{
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("INICIO DO PROGRAMA");
-		System.out.println("Insira um valor entre 1 e 1000: ");
+		int N = sc.nextInt();
 		
-		int userNum = sc.nextInt();
+		int[] range = {0, 0};
 		
-		for(int i = 1; i <= userNum; i++) {
-			if(i % 2 == 1) {
-				System.out.println(i);
+		for(int i = 0; i < N; i++) {
+			int x = sc.nextInt();
+			
+			if (10 <= x && x <= 20) {
+				range[0]++;
+			} else {
+				range[1]++;
 			}
 		}
 		
-		System.out.println("Numero do usuario: " + userNum);
-		
-		
-		
+		System.out.printf("%d in%n%d out", range[0], range[1]);
 		
 		
 		sc.close();
