@@ -17,7 +17,4 @@ public class Retangle {
 		return Math.sqrt((height * height) + (width * width));
 	}
 	
-	public String toString() {
-		return "";
-	}
 }

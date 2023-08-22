@@ -1,5 +1,6 @@
 
-public class Time {
+public class Time 
+{
 	private byte hour;
 	private byte minute;
 	private byte seconds;
@@ -31,7 +32,7 @@ public class Time {
     }
 
     // Setter para minuto
-    public void setMinuto(byte minuto) throws Exception
+    public void setMinute(byte minuto) throws Exception
     {
         if (minuto >= 0 && minuto < 60)
         {
@@ -52,7 +53,8 @@ public class Time {
     // Setter para segundos
     public void setSeconds(byte segundos) throws Exception
     {
-    	if (segundos >= 0 && segundos < 60) {
+    	if (segundos >= 0 && segundos < 60) 
+    	{
     		this.seconds = segundos;
     	}
     	else
@@ -65,9 +67,93 @@ public class Time {
     public Time(byte hora, byte minuto, byte segundos) throws Exception
     {
         setHour(hora);
-        setMinuto(minuto);
+        setMinute(minuto);
         setSeconds(segundos);
     }
     
+    // Avançar o tempo
+    public void advanceTime(int amtSec) throws Exception
+    {
+    	if (amtSec <= 0)
+    	{
+    		throw new Exception("Quantidade de segundos inválida");
+    	}
+    	
+    	// Adiciona segundo ao horário atual
+    	seconds += amtSec;
+    	
+    	//Verificar se a quantidade de segundos excedeu 60, 
+    	//incrementar os minutos e ajustar os segundos
+    	while (seconds >= 60) 
+    	{
+    		minute++;
+    		seconds -= 60;
+    	}
+    	
+    	// Verificar se os minutos excederam 60, 
+    	// incrementar as horas e ajustar os minutos
+    	while (minute >= 60)
+    	{
+    		hour ++;
+    		minute -= 60;
+    	}
+    	
+    	// Se a hora exceder 24, ajustar para voltar ao formato de 24 horas
+    	while (hour >= 24)
+    	{
+    		hour -= 24;
+    	}
+    	
+    }
     
+    public void rewindTime(int amtSec) throws Exception
+    {
+    	if (amtSec <= 0)
+    	{
+    		throw new Exception("Quantidade de segundos inválida");
+    	}
+    	
+    	// Retroceder segundo ao horário atual
+    	
+    	seconds -= amtSec;
+    	
+    	while (seconds <= 0)
+    	{
+    		minute --;
+    		seconds += 60;
+    	}
+    	
+    	while (minute<= 0) 
+    	{
+    		hour --;
+    		minute += 60;
+    	}
+    	
+    	while (hour <= 24)
+    	{
+    		hour += 24;
+    	}
+    	
+    	
+    }
+    
+    public String toString()
+    {
+    	return "Hora Atual: "
+    			+ getHour() 
+    			+":" 
+    			+ getMinute() 
+    			+ ":" 
+    			+ getSeconds();
+    }
+
 }
+
+
+
+
+
+
+
+
+
