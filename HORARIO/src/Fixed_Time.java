@@ -80,27 +80,21 @@ public class Time
     	}
     	
     	// Adiciona segundo ao horário atual
-    	int auxSecond = seconds;
-    	
-    	auxSecond += amtSec;
+    	seconds += amtSec;
     	
     	//Verificar se a quantidade de segundos excedeu 60, 
     	//incrementar os minutos e ajustar os segundos
-    	while (auxSecond >= 60) 
+    	while (seconds >= 60) 
     	{
     		minute++;
-    		auxSecond -= 60;
+    		seconds -= 60;
     	}
-    	
-    	seconds = (byte) auxSecond;
     	
     	// Verificar se os minutos excederam 60, 
     	// incrementar as horas e ajustar os minutos
-    	while (minute >= 60)
-    	{
-    		hour ++;
-    		minute -= 60;
-    	}
+    	// Adjusting minutes and hours
+    	hour += minute / 60;
+    	minute = minute % 60;
     	
     	// Se a hora exceder 24, ajustar para voltar ao formato de 24 horas
     	while (hour >= 24)
@@ -119,25 +113,19 @@ public class Time
     	
     	// Retroceder segundo ao horário atual
     	
-    	int auxSeconds = seconds;
+    	seconds -= amtSec;
     	
-    	auxSeconds -= amtSec;
-    	
-    	while (auxSeconds < 0)
+    	while (seconds <= 0)
     	{
     		minute --;
-    		auxSeconds += (auxSeconds == 0) ? 0 : 60;
+    		seconds += 60;
     	}
     	
-    	seconds = (byte) auxSeconds;
+    	// Adjusting minutes and hours when rewinding
+    	hour += minute / 60;  // This will subtract from hour if minute is negative
+    	minute = minute % 60;
     	
-    	while (minute<= 0) 
-    	{
-    		hour --;
-    		minute += 60;
-    	}
-    	
-    	while (hour >= 24)
+    	while (hour <= 24)
     	{
     		hour += 24;
     	}

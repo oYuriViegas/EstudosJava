@@ -94,6 +94,10 @@ public class Main
 			System.err.println(error.getMessage());
 		}
 		
+		TimeMenu menu = new TimeMenu(currentTime);
+			
+		menu.displayMenu();
+		
 		sc.close();
 	}
 }
