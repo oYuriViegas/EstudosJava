@@ -7,9 +7,9 @@ public class Main
 	{
 		Scanner sc = new Scanner(System.in);
 		
-		byte hora = -1;
-		byte minuto = -1;
-		byte segundo = -1;
+		int hora = -1;
+		int minuto = -1;
+		int segundo = -1;
 		
 		Time currentTime = null;
 		
@@ -19,10 +19,10 @@ public class Main
 			try
             {
                 System.out.print("Insira a hora (0-23): ");
-                hora = sc.nextByte();
+                hora = sc.nextInt();
                 
                 // Setter para fazer a validação
-                currentTime = new Time((byte)0, (byte)0, (byte)0); // Instância temporária só para validação
+                currentTime = new Time((int)0, (int)0, (int)0); // Instância temporária só para validação
                 currentTime.setHour(hora);
                 
                 break; // Se chegar aqui, a entrada é válida
@@ -44,7 +44,7 @@ public class Main
 			try
 			{
 				System.out.print("Insira o minuto (0-59): ");
-				minuto = sc.nextByte();
+				minuto = sc.nextInt();
 				
 				currentTime.setMinute(minuto);
 				
@@ -67,7 +67,7 @@ public class Main
 			try
 			{
 				System.out.print("Insira os segundos (0-59): ");
-				segundo = sc.nextByte();
+				segundo = sc.nextInt();
 				
 				currentTime.setSeconds(segundo);
 				
@@ -87,7 +87,6 @@ public class Main
 		try
 		{
 			currentTime = new Time(hora, minuto, segundo);
-			System.out.println(currentTime);
 		}
 		catch (Exception error)
 		{

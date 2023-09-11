@@ -35,7 +35,7 @@ public class TimeMenu {
 					System.out.println("Saindo...");
 					return;
 				default:
-					System.out.println("Opção inválida.");
+					System.err.println("Opção inválida.");
 			}
 			
 		}
