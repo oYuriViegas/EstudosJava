@@ -1,19 +1,19 @@
 
 public class Time 
 {
-	private byte hour;
-	private byte minute;
-	private byte seconds;
+	private int hour;
+	private int minute;
+	private int seconds;
 	
 	
 	// Getter para hora
-	public byte getHour()
+	public int getHour()
 	{
 		return hour;
 	}
 	
 	// Setter para hora
-    public void setHour(byte hora) throws Exception
+    public void setHour(int hora) throws Exception
     {
         if (hora >= 0 && hora < 24)
         {
@@ -26,13 +26,13 @@ public class Time
     }
     
     // Getter para minuto
-    public byte getMinute()
+    public int getMinute()
     {
         return minute;
     }
 
     // Setter para minuto
-    public void setMinute(byte minuto) throws Exception
+    public void setMinute(int minuto) throws Exception
     {
         if (minuto >= 0 && minuto < 60)
         {
@@ -44,14 +44,14 @@ public class Time
         }
     }
 	// Getter para segundos
-    public byte getSeconds()
+    public int getSeconds()
     {
     	return seconds;
     }
     
     
     // Setter para segundos
-    public void setSeconds(byte segundos) throws Exception
+    public void setSeconds(int segundos) throws Exception
     {
     	if (segundos >= 0 && segundos < 60) 
     	{
@@ -64,7 +64,7 @@ public class Time
     }
     
     // Construtor
-    public Time(byte hora, byte minuto, byte segundos) throws Exception
+    public Time(int hora, int minuto, int segundos) throws Exception
     {
         setHour(hora);
         setMinute(minuto);
@@ -80,15 +80,19 @@ public class Time
     	}
     	
     	// Adiciona segundo ao horário atual
-    	seconds += amtSec;
+    	int auxSecond = seconds;
+    	
+    	auxSecond += amtSec;
     	
     	//Verificar se a quantidade de segundos excedeu 60, 
     	//incrementar os minutos e ajustar os segundos
-    	while (seconds >= 60) 
+    	while (auxSecond >= 60) 
     	{
     		minute++;
-    		seconds -= 60;
+    		auxSecond -= 60;
     	}
+    	
+    	seconds = (int) auxSecond;
     	
     	// Verificar se os minutos excederam 60, 
     	// incrementar as horas e ajustar os minutos
@@ -115,24 +119,28 @@ public class Time
     	
     	// Retroceder segundo ao horário atual
     	
-    	seconds -= amtSec;
+    	int auxSeconds = seconds;
     	
-    	while (seconds <= 0)
+    	auxSeconds -= amtSec;
+    	
+    	while (auxSeconds < 0)
     	{
     		minute --;
-    		seconds += 60;
+    		auxSeconds += 60;
     	}
+    	
+    	seconds = (int) auxSeconds;
     	
     	while (minute<= 0) 
     	{
-    		hour --;
-    		minute += 60;
+    		hour -= (hour == 0) ? 0 : 23;
+    		minute += (hour == 0) ? 0 : 60;
     	}
     	
-    	while (hour <= 24)
-    	{
-    		hour += 24;
-    	}
+//    	while (hour <= 24)
+//    	{
+//    		hour += (hour == 0) ? 0 : 24;
+//    	}
     	
     	
     }
