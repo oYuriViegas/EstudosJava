@@ -4,13 +4,14 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
         System.out.println("Bem-vindo ao sistema de gerenciamento de escola!");
 
         // Criando a escola
         System.out.print("Informe a quantidade total de classes na escola: ");
-        int qtdClasses = scanner.nextInt();
+        int qtdClasses = sc.nextInt();
+        sc.nextLine();
 
         Escola escola;
         try {
@@ -28,7 +29,7 @@ public class Main {
             System.out.println("4. Ver a capacidade total da escola");
             System.out.println("5. Sair");
 
-            int escolha = scanner.nextInt();
+            int escolha = sc.nextInt();
 
             switch (escolha) {
                 case 1:
@@ -36,24 +37,24 @@ public class Main {
                     break;
                 case 2:
                     System.out.print("Informe o nível da classe: ");
-                    char nivel = scanner.next().charAt(0);
+                    char nivel = sc.next().charAt(0);
                     System.out.print("Informe o ano da classe: ");
-                    int ano = scanner.nextInt();
+                    int ano = sc.nextInt();
                     System.out.print("Informe a turma da classe: ");
-                    char turma = scanner.next().charAt(0);
+                    char turma = sc.next().charAt(0);
                     System.out.print("Informe o novo local da classe: ");
-                    char novoOnde = scanner.next().charAt(0);
+                    char novoOnde = sc.next().charAt(0);
 
                     escola.setOnde(nivel, ano, turma, novoOnde);
                     System.out.println("Local alterado com sucesso!");
                     break;
                 case 3:
                     System.out.print("Informe o nível da classe: ");
-                    nivel = scanner.next().charAt(0);
+                    nivel = sc.next().charAt(0);
                     System.out.print("Informe o ano da classe: ");
-                    ano = scanner.nextInt();
+                    ano = sc.nextInt();
                     System.out.print("Informe a turma da classe: ");
-                    turma = scanner.next().charAt(0);
+                    turma = sc.next().charAt(0);
 
                     char onde = escola.getOnde(nivel, ano, turma);
                     if (onde == 'N') {

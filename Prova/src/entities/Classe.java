@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Classe implements Cloneable {
     private char nivel; // '1': fundamental I, '2': fundamental II ou 'M': médio
-    private int ano;
-    private char turma;
-    private int tamanho;
+    private int ano; //  int 1 a 5 para ensino fundamental I, 6 a 9 para ensino fundamental II e 1 a 3 para ensino médio
+    private char turma; // char, 'A', 'B', etc
+    private int tamanho; // quantidade de alunos na classe
     private char onde; // 'C': em casa, 'A': em aula, 'L': em laboratório, 'F': na educação física ou 'X': em atividade externa
 
     // a) Construtor

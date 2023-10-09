@@ -12,7 +12,7 @@ public class Escola implements Cloneable {
 
         this.classes = new Classe[qtdClasses];
 
-        // Lógica para criar instâncias de `Classe` conforme especificado
+        // Lógica para criar instâncias de `Classe`
         int index = 0;
 
         int qtdFundamentalI = Math.round(qtdClasses * 0.25f); // 25%
