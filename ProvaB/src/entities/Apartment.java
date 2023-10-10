@@ -59,5 +59,5 @@ public class Apartment implements Cloneable{
     public int hashCode() { return Objects.hash(number, capacity, doubleBed, busy, interdict); }
 
     @Override
-    public Object clone() { return new Classe(this.number, this.capacity, this.doubleBed, this.busy, this.interdict); }
+    public Object clone() { return new Apartment(this.number, this.capacity, this.doubleBed, this.busy, this.interdict); }
 }
