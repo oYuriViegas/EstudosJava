@@ -1,5 +1,6 @@
-import entities.Escola;
+package application;
 
+import entities.Escola;
 import java.util.Scanner;
 
 public class Main {
